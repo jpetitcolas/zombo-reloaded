@@ -1,12 +1,17 @@
 @import "compass/css3";
 
-html, body {
-    height: 100%;
-}
+$green: #3DB871;
 
-body {
-    overflow: hidden;
+header {
     @include background-image(
-        linear-gradient(to bottom right, green, yellow)
+        linear-gradient(to bottom, $green, #fff)
     );
+    padding: 2rem;
+    height: 8rem; line-height: 6rem;
+    h1 {
+        text-align: center;
+        img {
+            max-width: 100%;
+        }
+    }
 }
