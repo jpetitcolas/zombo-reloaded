@@ -1,3 +1,4 @@
+var ExtractText = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var sassOptions = [
@@ -15,7 +16,11 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, loader: 'babel', include: __dirname + '/js' },
-            { test: /\.scss$/, loader: 'style!css!sass?' + sassOptions, include: /style\.scss$/ }
+            {
+                test: /\.scss$/,
+                loader: ExtractText.extract('css!sass?' + sassOptions),
+                include: /style\.scss$/
+            }
         ]
     },
     output: {
@@ -27,6 +32,9 @@ module.exports = {
             filename: 'index.html',
             template: __dirname + '/index.html',
             hash: true, // enable cache busters
+        }),
+        new ExtractText('style.css', {
+            allChunks: true
         })
     ]
 };
