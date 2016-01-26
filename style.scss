@@ -1,0 +1,12 @@
+@import "compass/css3";
+
+html, body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    @include background-image(
+        linear-gradient(to bottom right, green, yellow)
+    );
+}
