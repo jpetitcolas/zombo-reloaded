@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/jpetitcolas/zombo-reloaded#readme",
   "devDependencies": {
+    "babel-core": "^5.8.35",
+    "babel-loader": "^5.4.0",
     "webpack": "^1.12.12"
   }
 }
