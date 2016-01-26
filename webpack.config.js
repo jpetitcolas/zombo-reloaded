@@ -1,3 +1,5 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var sassOptions = [
     'includePaths[]=./node_modules/compass-mixins/lib/',
 ].join("\n");
@@ -19,5 +21,12 @@ module.exports = {
     output: {
         path: 'build/',
         filename: 'js/[name].js'
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: __dirname + '/index.html',
+            hash: true, // enable cache busters
+        })
+    ]
 };
